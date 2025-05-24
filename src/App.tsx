@@ -31,7 +31,7 @@ export class App extends React.Component<{}, AppState> {
   state: AppState = {
     hasClock: true,
     clockName: 'Clock-0',
-    time: new Date().toUTCString().slice(-12, -4),
+    time: new Date().toLocaleTimeString(),
   };
 
   private timeIntervalId: number | undefined;
@@ -41,7 +41,7 @@ export class App extends React.Component<{}, AppState> {
   componentDidMount(): void {
     this.timeIntervalId = window.setInterval(() => {
       if (this.state.hasClock) {
-        const time = new Date().toUTCString().slice(-12, -4);
+        const time = new Date().toLocaleTimeString();
 
         // eslint-disable-next-line no-console
         console.log(time);
